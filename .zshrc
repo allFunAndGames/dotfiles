@@ -104,3 +104,9 @@ source $ZSH/oh-my-zsh.sh
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
 fi
+
+# Misc additonal paths & aliases
+export PATH=$PATH:/usr/local/go/bin:$(go env GOPATH)/bin
+export PATH=$PATH:/home/rob/.local/bin
+alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:2.0.0'
+
