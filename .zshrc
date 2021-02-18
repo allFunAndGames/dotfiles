@@ -108,6 +108,6 @@ fi
 
 # Misc additonal paths & aliases
 export PATH=$PATH:/usr/local/go/bin:$(go env GOPATH)/bin
-export PATH=$PATH:/home/rob/.local/bin
+export PATH=$PATH:/home/rob/.local/bin:/home/rob/scripts
 alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:2.0.0'
 
