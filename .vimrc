@@ -44,6 +44,9 @@ set colorcolumn=80
 set signcolumn=yes
 set background=dark
 set encoding=utf8
+if $TERM == "screen-256color"
+    set notermguicolors
+endif
 
 " plugins
 call plug#begin('~/.vim/plugged')
@@ -74,6 +77,10 @@ Plug 'dbeniamine/cheat.sh-vim'
 Plug 'christoomey/vim-tmux-navigator'
 " get that sweet formatting assist
 Plug 'prettier/vim-prettier',{ 'do': 'yarn install' }
+" sync vim with unix shell commands
+Plug 'tpope/vim-eunuch'
+" pretty startup screen
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
@@ -107,14 +114,15 @@ let g:NERDToggleCheckAllLines = 1
 
 " Setup UndoTree
 nnoremap <leader>u :UndotreeToggle<CR>
+
 " Setup NERDTree
 nnoremap <leader>t :NERDTreeToggle<CR>
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | wincmd p | endif
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
-
 let NERDTreeShowHidden=1
-
+let NERDTreeQuitOnOpen=1 
+let g:NERDTreeChDirMode=2

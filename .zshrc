@@ -9,7 +9,7 @@ export ZSH="/home/rob/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="clean"
+ZSH_THEME="myclean"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -111,3 +111,11 @@ export PATH=$PATH:/usr/local/go/bin:$(go env GOPATH)/bin
 export PATH=$PATH:/home/rob/.local/bin:/home/rob/scripts
 alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:2.0.0'
 
+# Set the TERM as tmux seems to break this
+# export TERM=xterm-256color
+
+PATH="/home/rob/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/rob/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/rob/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/rob/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/rob/perl5"; export PERL_MM_OPT;
